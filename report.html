@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оставить заявку</title>
+    <link rel="icon" type="image/x-icon" href="img/icon1.png">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .modal {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            width: 50%;
+            height: 400px;
+        }
+
+        .close-btn {
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: #666;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        label {
+            font-size: 16px;
+            text-align: left;
+        }
+
+        input, select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button[type="button"] {
+            background-color: #3498db; /* изменен цвет кнопки */
+            color: #fff;
+            cursor: pointer;
+            padding: 10px 0px 10px 0px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 600px) {
+            .modal-content {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="openModal()">Открыть модальное окно</button>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Оставить заявку</h2>
+            <form action="mailto:avtocapital88@gmail.com" method="post" enctype="text/plain" >
+                <label for="subject">Дилеры:</label>
+                <select id="subject" name="subject" required>
+                    <option value="Дилеры"></option>
+                    <option value="sardor">Sardor Avto Invest</option>
+                    <option value="kokand">MB-Kokand</option>
+                    <option value="city">MB-City</option>
+                </select>
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="phone">Номер телефона:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+
+                <button type="submit" name="submit">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+       // emailjs.init("YOUR_EMAIL_SERVICE_USER_ID"); // Замените на ваш Email.js User ID
+
+        // function openModal() {
+        //     document.getElementById("myModal").style.display = "flex";
+        // }
+
+        // function closeModal() {
+        //     document.getElementById("myModal").style.display = "none";
+        // }
+
+
+ //       function sendEmail() {
+ //           const form = document.getElementById("emailForm");
+
+ //           emailjs.sendForm("YOUR_EMAIL_SERVICE_ID", "YOUR_TEMPLATE_ID", form)
+ //               .then(() => {
+  //                  alert("Сообщение отправлено успешно!");
+ //                   form.reset();
+ //                   closeModal();
+  //              }, (error) => {
+  //                  console.error("Ошибка при отправке сообщения:", error);
+  //              });
+ //       }
+    </script>
+</body>
+</html>

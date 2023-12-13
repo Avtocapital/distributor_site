@@ -1,0 +1,20 @@
+var POTENZA={};!function(t){"use strict";var a=t(window),e=t(document),i=(t("body"),t(".countdown"),t(".counter"));t.fn.exists=function(){return this.length>0},POTENZA.preloader=function(){t("#load").fadeOut(),t("#loading").delay(0).fadeOut("slow")},POTENZA.megaMenu=function(){t("#menu").megaMenu({logo_align:"left",links_align:"left",socialBar_align:"left",searchBar_align:"right",trigger:"hover",effect:"fade",effect_speed:400,sibling:!0,outside_click_close:!0,top_fixed:!1,sticky_header:!0,sticky_header_height:250,menu_position:"horizontal",full_width:!1,mobile_settings:{collapse:!0,sibling:!0,scrollBar:!0,scrollBar_height:400,top_fixed:!1,sticky_header:!1,sticky_header_height:200}})},POTENZA.carousel=function(){t(".owl-carousel").each(function(){var a=t(this),e=a.data("items")?a.data("items"):1,i=!a.data("loop")||a.data("loop"),s=!!a.data("nav-dots")&&a.data("nav-dots"),o=!!a.data("nav-arrow")&&a.data("nav-arrow"),n=!a.attr("data-autoplay")||a.data("autoplay"),l=a.attr("data-space")?a.data("space"):30;t(this).owlCarousel({loop:i,items:e,responsive:{0:{items:a.data("xx-items")?a.data("xx-items"):1},480:{items:a.data("xs-items")?a.data("xs-items"):2},768:{items:a.data("sm-items")?a.data("sm-items"):3},980:{items:a.data("md-items")?a.data("md-items"):4},1200:{items:e}},dots:s,margin:l,nav:o,navText:["<i class='fa fa-angle-left fa-2x'></i>","<i class='fa fa-angle-right fa-2x'></i>"],autoplay:n,autoplayHoverPause:!0})})},POTENZA.counters=function(){i.exists()&&i.each(function(){var a=t(this);a.appear(function(){a.find(".timer").countTo()})})},POTENZA.tabs=function(){var a=t("#tabs li[data-tabs]"),e=(t(".tabcontent"),t(".tabs li"));a.on("click",function(){t(this).parent().parent().find(".active").removeClass("active"),t(this).parent().parent().find(".tabcontent").hide();var a=t(this).data("tabs");t(this).addClass("active"),t("#"+a).fadeIn().show()}),e.on("click",function(){var a=e.index(this),i=t(this).parent().parent().find(".tabcontent:eq("+a+")");i.addClass("pulse"),setTimeout(function(){i.removeClass("pulse")},220)}),t("li[data-tabs]").each(function(){t(this).parent().parent().find(".tabcontent").hide().filter(":first").show()})},POTENZA.slickslider=function(){t(".slider-slick").exists()&&(t(".slider-for").slick({slidesToShow:1,slidesToScroll:1,arrows:!0,asNavFor:".slider-nav"}),t(".slider-nav").slick({slidesToShow:5,slidesToScroll:1,asNavFor:".slider-for",dots:!1,centerMode:!0,focusOnSelect:!0}))},POTENZA.mediaPopups=function(){t(".popup-gallery").exists()&&t(".popup-gallery").magnificPopup({delegate:"a.popup-img",type:"image",tLoading:"",mainClass:"mfp-img-mobile",gallery:{enabled:!0,navigateByImgClick:!0,preload:[0,1]}})},POTENZA.Isotope=function(){var a=t(".isotope"),e=t(".isotope-filters");a.exists()&&(a.isotope({resizable:!0,itemSelector:".grid-item",masonry:{gutterWidth:10}}),e.on("click","button",function(){var i=t(this).attr("data-filter");a.isotope({filter:i}),e.find(".active").removeClass("active"),t(this).addClass("active")}))},POTENZA.scrolltotop=function(){var e=t(".car-top");e.on("click",function(){return t("html,body").animate({scrollTop:0},800),t(this).addClass("car-run"),setTimeout(function(){e.removeClass("car-run")},1e3),!1}),a.on("scroll",function(){a.scrollTop()>=200?(e.addClass("show"),e.addClass("car-down")):(e.removeClass("show"),setTimeout(function(){e.removeClass("car-down")},300))})},a.on("load",function(){POTENZA.preloader(),POTENZA.Isotope()}),e.ready(function(){POTENZA.megaMenu(),POTENZA.counters(),POTENZA.carousel(),POTENZA.tabs(),POTENZA.slickslider(),POTENZA.mediaPopups(),POTENZA.scrolltotop()})}(jQuery);
+if ($(".hidden-bar").length) {
+    var hiddenBar = $(".hidden-bar");
+    var hiddenBarOpener = $(".hidden-bar-opener");
+    var hiddenBarCloser = $(".hidden-bar-closer");
+    var navToggler = $(".nav-toggler");
+
+    //Show Sidebar
+    hiddenBarOpener.on("click", function () {
+      hiddenBar.toggleClass("visible-sidebar");
+      navToggler.toggleClass("open");
+    });
+
+    //Hide Sidebar
+    hiddenBarCloser.on("click", function () {
+      hiddenBar.toggleClass("visible-sidebar");
+      navToggler.toggleClass("open");
+    });
+  }
+
