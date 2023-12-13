@@ -1,149 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Оставить заявку</title>
-    <link rel="icon" type="image/x-icon" href="img/icon1.png">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body style="background-color: #000;">
+    <section class="block">
+      <div class="container mt-5 border rounded bg-white">
+        <h2 class="text-center mt-5">Оставить заявку</h2>
+        <form action="" class="form">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Имя</label
+            >
+            <input
+              type="text"
+              class="form-control firstName"
+              placeholder="Your name"
+            />
+          </div>
 
-        button {
-            background-color: #3498db;
-            color: #fff;
-            padding: 10px 20px;
-            font-size: 18px;
-            border: none;
-            cursor: pointer;
-        }
+          <label for="exampleFormControlSelect1" class="form-label">Дилеры</label>
+          <select class="form-control custom-select mb-3 select">
+            <option selected>Выбор дилеров</option>
+            <option value="Sardor_Avto_Invest">Sardor Avto Ivest</option>
+            <option value="MB_Kokand">MB Kokand</option>
+            <option value="MB_City">MB-City</option>
+          </select>
 
-        .modal {
-            display: flex;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #000;
-            justify-content: center;
-            align-items: center;
-        }
+          <!-- <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Дилеры</label
+            >
+            <input
+              type="text"
+              class="form-control dealer"
+              placeholder="Your name"
+            />
+          </div> -->
 
-        .modal-content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            text-align: center;
-            width: 50%;
-            height: 400px;
-        }
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Номер телефона</label
+            >
+            <input
+              type="text"
+              class="form-control mobile"
+              placeholder="+998999999999"
+            />
+          </div>
+          <div class="col-md-12 text-center">
+            <button class="btn btn-primary btn-lg mb-5">Отправить</button>
+          </div>
+        </form>
+      </div>
+    </section>
 
-        .close-btn {
-            cursor: pointer;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 24px;
-            color: #666;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        label {
-            font-size: 16px;
-            text-align: left;
-        }
-
-        input, select {
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        button[type="button"] {
-            background-color: #3498db; /* изменен цвет кнопки */
-            color: #fff;
-            cursor: pointer;
-            padding: 10px 0px 10px 0px;
-            font-size: 16px;
-            border: none;
-            border-radius: 4px;
-        }
-
-        @media (max-width: 600px) {
-            .modal-content {
-                width: 90%;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <button onclick="openModal()">Открыть модальное окно</button>
-
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h2>Оставить заявку</h2>
-            <form action="mailto:avtocapital88@gmail.com" method="post" enctype="text/plain" >
-                <label for="subject">Дилеры:</label>
-                <select id="subject" name="Dealer " required>
-                    <option value="Дилеры"></option>
-                    <option value="Sardor_Avto_Invest">Sardor Avto Invest</option>
-                    <option value="MB-Kokand">MB-Kokand</option>
-                    <option value="MB-City">MB-City</option>
-                </select>
-                <label for="name">Имя:</label>
-                <input type="text" id="name" name="Name " required>
-
-                <label for="phone">Номер телефона:</label>
-                <input type="tel" id="phone" name="Phone " required>
-
-
-                <button type="submit" >Отправить</button>
-            </form>
-        </div>
-    </div>
-
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-       // emailjs.init("YOUR_EMAIL_SERVICE_USER_ID"); // Замените на ваш Email.js User ID
-
-        // function openModal() {
-        //     document.getElementById("myModal").style.display = "flex";
-        // }
-
-        // function closeModal() {
-        //     document.getElementById("myModal").style.display = "none";
-        // }
-
-
- //       function sendEmail() {
- //           const form = document.getElementById("emailForm");
-
- //           emailjs.sendForm("YOUR_EMAIL_SERVICE_ID", "YOUR_TEMPLATE_ID", form)
- //               .then(() => {
-  //                  alert("Сообщение отправлено успешно!");
- //                   form.reset();
- //                   closeModal();
-  //              }, (error) => {
-  //                  console.error("Ошибка при отправке сообщения:", error);
-  //              });
- //       }
-    </script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script src="jss/script.js"></script>
+  </body>
 </html>
